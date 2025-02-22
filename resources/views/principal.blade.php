@@ -5,5 +5,5 @@
 @endsection
 
 @section('contenido')
-<h1 class="text-3xl font-bold underline">Página principal</h1>
+    contenido de esta página
 @endsection
