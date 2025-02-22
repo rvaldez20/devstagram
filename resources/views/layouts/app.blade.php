@@ -15,7 +15,9 @@
 
             <nav class="flex gap-3 items-center">
                <a class="font-bold uppercase text-gray-600 text-sm">Login</a>
-               <a class="font-bold uppercase text-gray-600 text-sm">Crear Cuenta</a>
+               <a class="font-bold uppercase text-gray-600 text-sm" href="/crear-cuenta">
+                  Crear Cuenta
+               </a>
             </nav>
          </div>
       </header>
@@ -30,7 +32,7 @@
       </main>
 
 
-      <footer class="text-center p-5 text-gray-500 font-bold uppercase">
+      <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-10">
          Devstagram - Todos los derechos reservados {{ now()->year }}
       </footer>
 	</body>
