@@ -12,7 +12,7 @@
       </div>
 
       <div class="md:w-4/12 bg-white p-6 rounded-lg">
-         <form>
+         <form action="/crear-cuenta" method="POST">
             <div class="mb-5">
                <label for="name" id="name" class="mb-2 block uppercase text-gray-500 font-bold">
                   Nombre
@@ -79,7 +79,7 @@
             </div>
 
             <input
-               type="text"
+               type="submit"
                value="Crea Cuenta"
                class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg text-center"
             >
