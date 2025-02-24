@@ -23,8 +23,15 @@
                   name="name"
                   type="text"
                   placeholder="Tu Nombre"
-                  class="border p-3 w-full rounded-lg"
+                  class="border-2 p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
+                  value="{{ old('name') }}"
                >
+
+               @error('name')
+						<p class="bg-red-500 text-white font-bold text-xsm text-center uppercase my-2 p-2 rounded-sm">
+							{{ $message }}
+						</p>
+               @enderror
             </div>
 
             <div class="mb-5">

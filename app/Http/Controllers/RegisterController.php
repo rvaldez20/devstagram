@@ -8,11 +8,20 @@ class RegisterController extends Controller
 {
    public function index()
    {
-      return view('auth.register');
+		return view('auth.register');
    }
 
-   public function store()
+   public function store(Request $request)
    {
-      dd('Post...');
+      // dd($request);              // all request (many information)
+      // dd($request->get('email'));   // only the field that especific
+
+      //   Validacion
+      $this->validate($request, [
+         'name' => 'required|max:30',
+      ]);
+
+
+
    }
 }
