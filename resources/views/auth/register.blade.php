@@ -27,7 +27,7 @@
                   value="{{ old('name') }}"
                >
                @error('name')
-						<p class="bg-red-500 text-white font-bold text-xsm text-center uppercase my-2 p-2 rounded-lg">
+						<p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
 							{{ $message }}
 						</p>
                @enderror
@@ -46,7 +46,7 @@
                   value="{{ old('username') }}"
                >
                @error('username')
-						<p class="bg-red-500 text-white font-bold text-xsm text-center uppercase my-2 p-2 rounded-lg">
+						<p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
 							{{ $message }}
 						</p>
                @enderror
@@ -65,7 +65,7 @@
                   value="{{ old('email') }}"
                >
                @error('email')
-						<p class="bg-red-500 text-white font-bold text-xsm text-center uppercase my-2 p-2 rounded-lg">
+						<p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
 							{{ $message }}
 						</p>
                @enderror
@@ -81,7 +81,6 @@
                   type="password"
                   placeholder="Password de Registro"
                   class="border-2 p-3 w-full rounded-lg @error('password') border-red-500 @enderror"
-                  value="{{ old('password') }}"
                >
                @error('password')
 						<p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
@@ -99,8 +98,13 @@
                   name="password_confirmation"
                   type="password"
                   placeholder="Repite tu Password"
-                  class="border p-3 w-full rounded-lg"
+                  class="border p-3 w-full rounded-lg @error('password_confirmation') border-red-500 @enderror"
                >
+               @error('password_confirmation')
+						<p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
+							{{ $message }}
+						</p>
+               @enderror
             </div>
 
             <input
