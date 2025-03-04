@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,6 +18,9 @@ class RegisterController extends Controller
    {
       // dd($request);              // all request (many information)
       // dd($request->get('email'));   // only the field that especific
+
+      //*Modificar el Request
+      $request->request->add(['username' => Str::slug($request->username)]);
 
       //   Validacion
       $this->validate($request, [
