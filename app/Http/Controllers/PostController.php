@@ -8,6 +8,6 @@ class PostController extends Controller
 {
     public function index()
     {
-        dd('desde Muro');
+        dd(auth()->user());
     }
 }
