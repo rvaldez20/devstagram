@@ -26,6 +26,7 @@ class LoginController extends Controller
 
         // significa que la auth es correcta y puede acceder al muro
         auth()->attempt($request->only('email', 'password'));
-        return redirect()->route('posts.index');
+
+        return redirect()->route('posts.index', auth()->user()->username);
     }
 }
