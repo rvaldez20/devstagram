@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endpush()
 
-{{-- @push('scripts')
+@push('script')
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-@endpush --}}
+@endpush
 
 @section('contenido')
 	<div class="md:flex md:items-center">
@@ -85,10 +85,25 @@
             dictDefaultMessage: 'Sube aquí tu imágen',
             acceptedFiles: ".png, .jpg, ,jpeg, .gif",
             addRemoveLinks: true,
-            dictRemoveFile: 'Borrar Archivo.....',
+            dictRemoveFile: 'Borrar Archivo',
             maxFiles: 1,
             uploadMultiple: false
         })
+
+        dropzone.on('sending', function(file, xhr, formdate) {
+            console.log(file)
+        })
+
+        dropzone.on('success', function(file, response) {
+            console.log(response)
+        })
+
+        dropzone.on('error', function(file, message) {
+            console.log(message)
+        })
+
+        dropzone.on('removedfile', function() {})
+
     </script>
 
 @endsection
