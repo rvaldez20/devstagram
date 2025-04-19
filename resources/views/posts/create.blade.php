@@ -7,7 +7,13 @@
 @section('contenido')
 	<div class="md:flex md:items-center">
 		<div class="md:w-1/2 px-10">
-			Imagen Aqui
+			<form
+                action="/IMAGENES"
+                id="dropzone"
+                class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center"
+            >
+
+            </form>
 		</div>
 
 		<div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
@@ -58,4 +64,21 @@
 			</form>
 		</div>
     </div>
+
+    <script>
+        // alert("app JS working..............")
+        // import Dropzone from 'dropzone'
+
+        Dropzone.autoDiscover = false;
+
+        const dropzone = new Dropzone("#dropzone", {
+            dictDefaultMessage: 'Sube aquí tu imágen',
+            acceptedFiles: ".png, .jpg, ,jpeg, .gif",
+            addRemoveLinks: true,
+            dictRemoveFile: 'Borrar Archivo',
+            maxFiles: 1,
+            uploadMultiple: false
+        })
+    </script>
+
 @endsection

@@ -5,6 +5,9 @@
          <meta name="viewport" content="width=device-width, initial-scale=1">
          @vite('resources/css/app.css')
          <title>Devstagram - @yield('titulo')</title>
+
+         <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+         {{-- <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" /> --}}
    </head>
 
    <body class="bg-gray-100">
@@ -68,5 +71,6 @@
       <footer class="text-center p-5 text-gray-500 font-bold uppercase mt-10">
          Devstagram - Todos los derechos reservados {{ now()->year }}
       </footer>
+
 	</body>
 </html>
