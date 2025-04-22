@@ -27,7 +27,7 @@
 		</div>
 
 		<div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
-			<form action="{{ route('register') }}" method="POST" novalidate>
+			<form action="{{ route('posts.store') }}" method="POST" novalidate>
                @csrf
                <div class="mb-5">
                   <label for="titulo" id="name" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -35,7 +35,7 @@
                   </label>
                   <input
                      id="titulo"
-                     name="name"
+                     name="titulo"
                      type="text"
                      placeholder="Título de la Publicación"
                      class="border-2 p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
@@ -49,21 +49,34 @@
                </div>
 
                <div class="mb-5">
-                  <label for="descripcion" id="name" class="mb-2 block uppercase text-gray-500 font-bold">
-                     Descripción
-                  </label>
-                  <textarea
-                     id="descripcion"
-                     name="name"
-                     rows="8"
-                     placeholder="Descripción de la Publicación"
-                     class="border-2 p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
-                  >{{ old('name') }}</textarea>
-                  @error('descripcion')
-                           <p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
-                              {{ $message }}
-                           </p>
-                  @enderror
+                    <label for="descripcion" id="name" class="mb-2 block uppercase text-gray-500 font-bold">
+                        Descripción
+                    </label>
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="8"
+                        placeholder="Descripción de la Publicación"
+                        class="border-2 p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
+                    >{{ old('descripcion') }}</textarea>
+                    @error('descripcion')
+                            <p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
+                                {{ $message }}
+                            </p>
+                    @enderror
+               </div>
+
+               <div class="mb-5">
+                <input
+                    name="imagen"
+                    type="hidden"
+                />
+                @error('imagen')
+                    <p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
+                        {{ $message }}
+                    </p>
+                @enderror
+
                </div>
 
                <input
@@ -90,19 +103,26 @@
             uploadMultiple: false
         })
 
+        /*
         dropzone.on('sending', function(file, xhr, formdate) {
             console.log(file)
         })
+        */
 
         dropzone.on('success', function(file, response) {
-            console.log(response)
+            console.log(response.imagen)
+            document.querySelector('[name="imagen"]').value = response.imagen
         })
 
+
+        dropzone.on('removedfile', function() {})
+
+        /*
         dropzone.on('error', function(file, message) {
             console.log(message)
         })
+        */
 
-        dropzone.on('removedfile', function() {})
 
     </script>
 

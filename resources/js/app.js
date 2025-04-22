@@ -13,3 +13,7 @@
 // })
 
 
+// dropzone.on('success', function(file, response) {
+//   console.log(response.imagen)
+//   document.querySelector('[name="imagen"]').value = response.imagen
+// })
