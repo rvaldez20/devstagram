@@ -59,7 +59,7 @@
             </div>
 
             <div class="mb-5">
-                <input type="checkbox" name="remember"><label class="ml-1 text-gray-500 text-sm">Mantener la Sesión Abierta</label>
+                <input type="checkbox" name="remember" id="remember"><label for="remember" class="ml-1 text-gray-500 text-sm">Mantener la Sesión Abierta</label>
             </div>
 
             <input
