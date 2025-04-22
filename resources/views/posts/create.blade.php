@@ -39,7 +39,7 @@
                      type="text"
                      placeholder="Título de la Publicación"
                      class="border-2 p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
-                     value="{{ old('name') }}"
+                     value="{{ old('titulo') }}"
                   >
                   @error('titulo')
                            <p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
@@ -70,6 +70,7 @@
                 <input
                     name="imagen"
                     type="hidden"
+                    value="{{ old('imagen') }}"
                 />
                 @error('imagen')
                     <p class="bg-red-500 text-white font-bold text-sm text-center uppercase my-2 p-2 rounded-lg">
@@ -100,7 +101,19 @@
             addRemoveLinks: true,
             dictRemoveFile: 'Borrar Archivo',
             maxFiles: 1,
-            uploadMultiple: false
+            uploadMultiple: false,
+
+            init: function(){
+                if(document.querySelector('[name="imagen"]').value.trim()){
+                    const imagenPublicada = {}
+                    imagenPublicada.size = 1234
+                    imagenPublicada.name = document.querySelector('[name="imagen"]').value
+
+                    this.options.addedfile.call(this, imagenPublicada)
+                    this.options.thumbnail.call(this, imagenPublicada, `/uploads/${imagenPublicada.name}`)
+                    imagenPublicada.previewElement.classList.add('dz-success', 'dz-complete')
+                }
+            }
         })
 
         /*
@@ -115,7 +128,9 @@
         })
 
 
-        dropzone.on('removedfile', function() {})
+        dropzone.on('removedfile', function() {
+            document.querySelector('[name="imagen"]').value = ''
+        })
 
         /*
         dropzone.on('error', function(file, message) {
