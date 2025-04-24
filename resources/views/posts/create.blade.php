@@ -55,7 +55,7 @@
                     <textarea
                         id="descripcion"
                         name="descripcion"
-                        rows="8"
+                        rows="6"
                         placeholder="Descripción de la Publicación"
                         class="border-2 p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
                     >{{ old('descripcion') }}</textarea>
