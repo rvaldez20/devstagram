@@ -34,6 +34,7 @@ class PostController extends Controller
             'imagen' => 'required'
         ]);
 
+        //? Forma 1 de crear un post
         // Post::create([
         //     'titulo' => $request->titulo,
         //     'descripcion' => $request->descripcion,
@@ -41,12 +42,21 @@ class PostController extends Controller
         //     'user_id' => auth()->user()->id
         // ]);
 
-        $post = new Post;
-        $post->titulo = $request->titulo;
-        $post->descripcion = $request->descripcion;
-        $post->imagen = $request->imagen;
-        $post->user_id = auth()->user()->id;
-        $post->save();
+        //? Forma 2 de crear un post
+        // $post = new Post;
+        // $post->titulo = $request->titulo;
+        // $post->descripcion = $request->descripcion;
+        // $post->imagen = $request->imagen;
+        // $post->user_id = auth()->user()->id;
+        // $post->save();
+
+        //? Forma 3 de crear un post
+        $request->user()->posts()->create([
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'imagen' => $request->imagen,
+            'user_id' => auth()->user()->id
+        ]);
 
         return redirect()->route('posts.index', auth()->user()->username);
     }
